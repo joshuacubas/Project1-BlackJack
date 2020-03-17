@@ -57,7 +57,8 @@ const game = {
 	start : ()=>{
 		game.generateDeck()
 		let dealToArray = [game.player1Hand,game.player1Hand,game.player2Hand,game.player2Hand,game.dealerHand]
-		game.addRandomCardToHand(game.player1Hand)
+		dealToArray.forEach(element => game.addRandomCardToHand(element))
+		
 	},
 
 	placeBets : () => {},
