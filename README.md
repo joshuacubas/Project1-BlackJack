@@ -8,6 +8,7 @@
 #### Type: Javascript Game
 #
 #
+[Imgur](https://i.imgur.com/igNdJ4a.jpg)
 # Basic Idea
 
   - The main Objective is to get your cards total score to equal or be as close to 21 as possible.
