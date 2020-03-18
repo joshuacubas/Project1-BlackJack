@@ -5,3 +5,16 @@ body {
 #div-dealer {
 	margin : 3%;
 }
+
+#players {
+	display:flex;
+	flex-direction: row;
+}
+
+#player1 {
+
+}
+
+#player2 {
+
+}

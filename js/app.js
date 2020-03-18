@@ -7,6 +7,7 @@ class Card {
 		this.suit = suit
 		this.numFace = numFace
 		this.name = `${numFace} of ${suit}`
+		this.value
 	}
 }
 
@@ -40,6 +41,7 @@ const game = {
 		
 		let numFaces = ['2','3','4','5','6','7','8','9','10','J','Q','K','A']
 		let suits = ['CLUBS',"SPADES",'HEARTS','DIAMONDS']
+		let values = [2,3,4,5,6,7,8,9,10,10,10,10,11]
 		
 		
 		for(let i = 0; i < suits.length; i++){
@@ -83,3 +85,33 @@ const game = {
 
 
 //Listeners below
+const player1HitButton = document.querySelector("hit1")
+const player1StayButton = document.querySelector("stay1")
+const player2HitButton = document.querySelector("hit2")
+const player2StayButton = document.querySelector("stay2")
+
+
+player1HitButton.addEventListener('click', (event) => {
+	//add card to player1Hand
+	addRandomCardToHand(game.player1Hand)
+} 
+
+player2HitButton.addEventListener('click', (event) => {
+	//add card to player2Hand
+	addRandomCardToHand(game.player2Hand)
+}
+
+player1StayButton.addEventListener('click', (event) => {
+	//end player1 turn
+}
+
+player2StayButton.addEventListener('click', (event) => {
+	//end player2 turn
+}
+
+
+
+
+
+
+
