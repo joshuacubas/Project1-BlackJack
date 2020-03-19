@@ -18,17 +18,17 @@ const game = {
 
 	player1HandWorth : 0,
 
-	player1Bank : 10,
+	player1Bank : 9,
 
-	player1Bet : 0,
+	player1Bet : 1,
 
 	player2Hand : [],
 
 	player2HandWorth : 0,
 
-	player2Bank: 10,
+	player2Bank: 9,
 
-	player2Bet : 0,
+	player2Bet : 1,
 
 	dealerHand : [],
 
@@ -93,8 +93,57 @@ const game = {
 	}, 
 
 	dealerTurn : () => {
-		
+
+		let dealerHandTotal = game.checkHandWorth(game.dealerHand)
+
+		//make the dealer add cards to it's own hand
+		if(dealerHandTotal < 12){
+			game.addRandomCardToHand(game.dealerHand)
+		}
+
+		if(dealerHandTotal > 12 && dealerHandTotal < 17){
+			game.addRandomCardToHand(game.dealerHand)
+		}
+
+		if(dealerHandTotal > 17){
+			// ********************************************** stay****
+		}
+
+
+		game.compareHands(game.checkHandWorth(game.player1Hand),game.checkHandWorth(game.dealerHand))
+		game.compareHands(game.checkHandWorth(game.player2Hand),game.checkHandWorth(game.dealerHand))
 	},
+
+	compareHands : (playersH,dealerH) => {
+
+		//function to check if playersH is 1 || 2
+		//call func when player wins
+
+		if( (playersH > 21) && (dealerH < 22) ) {
+			console.log("dealer wins")
+		}
+
+		if( (playersH < 22) && (dealerH > 21) ) {
+			console.log("player wins")
+		}
+
+		if(playersH > dealerH){
+			if(playerH < 22){
+				console.log("player wins")
+			}
+		}
+
+		if(playersH < dealerH){
+			if(dealerH < 22){
+				console.log("dealer wins")
+			}
+		}
+
+
+
+
+
+	}, 
 
 	placeBets : () => {},
 
@@ -157,6 +206,7 @@ const game = {
 
 
 }
+
 game.start()
 
 
@@ -168,6 +218,7 @@ const player2StayButton = document.querySelector("#stay2")
 
 
 //for each below, if buttons are set to visible, its their turn to go, so allow it
+//can make more dry and use one listener for button class
 player1HitButton.addEventListener('click', (event) => {
 	//add card to player1Hand
 	// addRandomCardToHand(game.player1Hand)
@@ -198,54 +249,6 @@ player2StayButton.addEventListener('click', (event) => {
 })
 
 
-
-// checkHandWorth: (whoseHand) => {
-
-// 		let total = 0
-		
-// 		for(let i = 0; i < whoseHand.length; i++){
-			
-// 			total += whoseHand[i].value
-// 		}
-
-// 		if(total > 21){
-			
-// 			//if total was over 21 check for aces,change ace value to 1
-// 			let total = 0
-// 			console.log("at 1")
-// 			for(let j = 0; j < whoseHand.length; j++){
-				
-// 				let curCardvalue = whoseHand[j].value
-// 				console.log("at 2")
-// 				if(curCardvalue === 11){
-// 					//if current card value is  11/ace,  then change value to 1
-// 					curCardvalue  = 1
-// 					//then check the total again, if under 21 return total
-// 					//otherwise keep checking for more aces
-// 					let total = 0
-// 					console.log("at 3")
-// 					for(let k = 0; k < whoseHand.length; k++){
-// 						total += whoseHand[k].value
-// 						console.log("at 4")
-// 					}
-// 					console.log("total before is", total)
-					
-// 					if(total <= 21){
-// 						console.log("at 5")
-// 						console.log('nested Total', total)
-// 						return total
-// 					} 
-// 				}
-// 			}
-// 		} 
-		
-// 		else{
-
-// 			console.log("total", total)
-// 			return total
-// 		}
-
-// 	},
 
 
 
