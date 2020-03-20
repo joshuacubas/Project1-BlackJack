@@ -42,7 +42,15 @@ const game = {
 
 	discardPile : [],
 
+	player1HandDivLoc : document.querySelector('#player1Cards'),
+
+	player2HandDivLoc : document.querySelector('#player2Cards'),
+
+	dealerHandDivLoc : document.querySelector('#dealerCards'),
+
 	generateDeck : () => {
+
+		console.log("generateDeck() called")
 		
 		let numFaces = ['2','3','4','5','6','7','8','9','10','J','Q','K','A']
 		let suits = ['CLUBS',"SPADES",'HEARTS','DIAMONDS']
@@ -63,18 +71,23 @@ const game = {
 	}, 
 
 	start : ()=>{
-		game.deck = []
+		console.log("start func running")
+		game.deck = []  
 		game.generateDeck()
-		let dealToArray = [game.player2Hand,game.player2Hand,game.player1Hand,game.player1Hand,game.dealerHand,game.dealerHand]
-		dealToArray.forEach(element => game.addRandomCardToHand(element))
+		let dealToArray = [[game.player2Hand,game.player2HandDivLoc],[game.player1Hand,game.player1HandDivLoc],[game.dealerHand,game.dealerHandDivLoc]]
+		dealToArray.forEach(element => {
+			game.addRandomCardToHand(element[0],element[1])
+			game.addRandomCardToHand(element[0],element[1])
+			console.log("after game.start added card to elementHand",element[0])
+			})
 		//make cards visible player 2 to 1 to dealer, if time hand motion or card motion
 
 		//player 2 turn
-		game.player2Turn()
+		// game.player2Turn()
 		//player 1 turn
-		game.player1Turn()
-		//dealer turn
-		game.dealerTurn()
+		// game.player1Turn()
+		// //dealer turn
+		// game.dealerTurn()
 		//compare evaluate
 
 			//if blackjack occurs player wins 
@@ -83,7 +96,8 @@ const game = {
 	},
 
 	player2Turn : () => {
-	//show div buttons to make choices
+	//show div buttons to make choices, set style to visible show
+
 
 	},
 
@@ -155,7 +169,9 @@ const game = {
 		card.style.backgroundColor = 'white'
 		card.style.border = 'solid black 1px'
 
-		const cardName = document.createElement('')
+		const cardName = document.createElement('p')
+		console.log("where",whereToGo)
+		whereToGo.appendChild(card)
 
 
 	},  
@@ -167,11 +183,31 @@ const game = {
 		return randomIndex
 	}, 
 
-	addRandomCardToHand : (whoseHand) => {
-
+	addRandomCardToHand : (whoseHand,whoseDiv) => {
+		console.log("whoseHand",whoseHand)
+		console.log("whoseDiv",whoseDiv)
+		// if(whoseDiv === undefined){
+		// 	if(whoseHand === game.player1Hand ){
+		// 		whoseDiv = game.player1HandDivLoc
+		// 	}
+		// 	if(whoseHand === undefined){
+		// 		whoseDiv = game.player2HandDivLoc
+		// 	}
+		// 	if(whoseHand === undefined){
+		// 		whoseDiv = game.dealerHandDivLoc
+		// 	}
+		// }
 		let index = game.randomCardIdx()
 		let card = game.deck.splice(index,1)
 		whoseHand.push(card[0])
+
+		//make card and add to div
+		//add card to div
+		let lastCardInHandArr = whoseHand[whoseHand.length-1]
+		console.log("lastCardInHandArr", lastCardInHandArr)
+		game.createDivCard(lastCardInHandArr,whoseDiv)
+
+
 		//check hand total
 		game.checkHandWorth(whoseHand) 
 	}, 
@@ -228,6 +264,9 @@ const player1HitButton = document.querySelector("#hit1")
 const player1StayButton = document.querySelector("#stay1")
 const player2HitButton = document.querySelector("#hit2")
 const player2StayButton = document.querySelector("#stay2")
+const player1HandDiv = document.querySelector('#player1Cards')
+const player2HandDiv = document.querySelector('#player2Cards')
+const dealerHandDiv = document.querySelector('#dealerCards')
 
 
 //for each below, if buttons are set to visible, its their turn to go, so allow it
@@ -236,7 +275,7 @@ player1HitButton.addEventListener('click', (event) => {
 	//add card to player1Hand
 	// addRandomCardToHand(game.player1Hand)
 
-	game.addRandomCardToHand(game.player1Hand)
+	game.addRandomCardToHand(game.player1Hand,game.player1HandDiv)
 }) 
 
 player2HitButton.addEventListener('click', (event) => {
@@ -244,7 +283,9 @@ player2HitButton.addEventListener('click', (event) => {
 	//add card to player2Hand
 	// addRandomCardToHand(game.player2Hand)
 
-	game.addRandomCardToHand(game.player2Hand)
+	
+	
+	game.addRandomCardToHand(game.player2Hand,game.player2HandDiv)
 
 })
 

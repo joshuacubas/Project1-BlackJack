@@ -150,6 +150,18 @@ body {
 
 }
 
+#dealerCards {
+	display: inline-flex;
+	width:49%;
+	height: 225px;
+	border: solid black 3px;
+	border-radius: 10px;
+	background: rgb(17,93,10);
+	background: linear-gradient(0deg, rgba(17,93,10,1) 23%, rgba(40,143,24,0.9416141456582633) 48%, rgba(10,91,0,1) 71%);
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
 
 #players {
 	display:flex;
@@ -160,7 +172,7 @@ body {
 #player1 {
 	display;flex-flow;
 	flex-direction: column;
-	width: 45%;
+	width: 49%;
 }
 
 #player1andBankDiv {
@@ -168,6 +180,7 @@ body {
 	flex-direction: row;
 	align-items: center;
 	margin-left: 20px;
+	color:black;
 }
 
 #player1Cards {
@@ -176,12 +189,25 @@ body {
 	height: 225px;
 	border: solid black 3px;
 	border-radius: 10px;
+	background: rgb(17,93,10);
+	background: linear-gradient(0deg, rgba(17,93,10,1) 23%, rgba(40,143,24,0.9416141456582633) 48%, rgba(10,91,0,1) 71%);
+}
+
+#player2Cards {
+	display: inline-flex;
+	width:100%;
+	height: 225px;
+	border: solid black 3px;
+	border-radius: 10px;
+	background: rgb(17,93,10);
+	background: linear-gradient(0deg, rgba(17,93,10,1) 23%, rgba(40,143,24,0.9416141456582633) 48%, rgba(10,91,0,1) 71%);
 }
 
 #player2 {
 	display;flex-flow;
 	flex-direction: column;
-	width: 45%;
+	width: 49%;
+
 }
 
 #player2andBankDiv{
