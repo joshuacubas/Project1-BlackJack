@@ -1,28 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>BlackJack Game</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<header>
 		<h1>Welcome to the BlackJack Table</h1>
 	</header>
-	<div id="div-dealer">
+	<div id="div-dealerContainer">
+
+		<div id="dealerBank-Div">
+			<img src="pics/chip3Stacks.png" id="stack">
+			<div id="ratioPtag">
+				<h4 id="ratioTitle">Current Betting Ratio is</h4>
+				<h3 id="ratioNum">2 : 1</h5>
+			</div>
+			
+		</div>
+		<div id="div-Deck">
+			<img src="pics/fancyFourSuits.png" id="deck">
+		</div>
+		<div id="dealerPersonDiv">
+			<div id="avatarBankContainer">
+				<img id="dealerPic" src="pics/dealerAvatar.png"></img>
+				<div id="dealerBankRow">
+					<img src="pics/chipStack.png" class="singleChipColumns"></img>
+					<p class="X">X</p>
+					<h1 id='dealerChipsLeft'>200</h1>
+				</div>
+			</div>
+		</div>
 		
 	</div>
 	<div id="players">
 		<div id="player1" class="playerDivs">
-			<h2>Player 1</h2>
+			<div id="player1andBankDiv">
+				<h1 id="player1H1">Player 1</h1>
+				<div id="player1BankRow">
+						<img src="pics/chipStack.png" class="singleChipColumns"></img>
+						<p class="X">X</p>
+						<h1 id="player1ChipsLeft">100</h1>
+				</div>
+			</div>
 			<button id="hit1" class="hitButtons">Hit</button>
 			<button id="stay1" class="stayButtons">Stay</button>
+			<form id="player2WageForm">
+		    	<input id="player2Wage" type="number" name="demoInput" placeholder="Type in Bet" />
+		    	<button id="placeWager2" class="wagerButtons">Submit Bet</button>    
+			</form>
+			<div id="player1Cards"></div>
 			<!-- form for bet -->
 		</div>
 
 		<div id="player2" class="playerDivs">
-			<h2>Player 2</h2>
+			<div id="player2andBankDiv">
+				<h1 id="player2H1">Player 2</h1>
+				<div id="player2BankRow">
+					<img src="pics/chipStack.png" class="singleChipColumns"></img>
+					<p class="X">X</p>
+					<h1 id="player2ChipsLeft">100</h1>	
+				</div>
+				
+			</div>
 			<button id="hit2" class="hitButtons">Hit</button>
 			<button id="stay2" class="stayButtons">Stay</button>
+			<form id="player2WageForm">
+		    	<input id="player2Wage" type="number" name="demoInput" placeholder="Type in Bet" />
+		    	<button id="placeWager2" class="wagerButtons">Submit Bet</button>    
+			</form>
+			<div id="player1Cards"></div>
 			<!-- form for bet -->
 		</div>
 	</div>

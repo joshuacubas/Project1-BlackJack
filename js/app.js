@@ -128,7 +128,7 @@ const game = {
 		}
 
 		if(playersH > dealerH){
-			if(playerH < 22){
+			if(playersH < 22){
 				console.log("player wins")
 			}
 		}
@@ -146,6 +146,19 @@ const game = {
 	}, 
 
 	placeBets : () => {},
+
+	createDivCard : (obj,whereToGo) => {
+		const card = document.createElement('div')
+		card.classList.add('cards')
+		card.style.width = '125px'
+		card.style.height = '175px'
+		card.style.backgroundColor = 'white'
+		card.style.border = 'solid black 1px'
+
+		const cardName = document.createElement('')
+
+
+	},  
 
 	randomCardIdx : () => {
 		let randomIndex = Math.floor( Math.random()*game.deck.length );
@@ -232,6 +245,7 @@ player2HitButton.addEventListener('click', (event) => {
 	// addRandomCardToHand(game.player2Hand)
 
 	game.addRandomCardToHand(game.player2Hand)
+
 })
 
 player1StayButton.addEventListener('click', (event) => {
