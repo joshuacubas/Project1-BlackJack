@@ -185,31 +185,28 @@ const game = {
 	}, 
 
 	addRandomCardToHand : (whoseHand,whoseDiv) => {
-		console.log("whoseHand",whoseHand)
-		console.log("whoseDiv",whoseDiv)
-		// if(whoseDiv === undefined){
-		// 	if(whoseHand === game.player1Hand ){
-		// 		whoseDiv = game.player1HandDivLoc
-		// 	}
-		// 	if(whoseHand === undefined){
-		// 		whoseDiv = game.player2HandDivLoc
-		// 	}
-		// 	if(whoseHand === undefined){
-		// 		whoseDiv = game.dealerHandDivLoc
-		// 	}
-		// }
-		let index = game.randomCardIdx()
-		let card = game.deck.splice(index,1)
-		whoseHand.push(card[0])
+		
+		if(game.checkHandWorth(whoseHand) < 22){
+		
+			let index = game.randomCardIdx()
+			let card = game.deck.splice(index,1)
+			whoseHand.push(card[0])
 
-		//make card and add to div
-		//add card to div
-		let lastCardInHandArr = whoseHand[whoseHand.length-1]
-		console.log("lastCardInHandArr", lastCardInHandArr)
-		game.createDivCard(lastCardInHandArr,whoseDiv)
+			
+			let lastCardInHandArr = whoseHand[whoseHand.length-1]
+			console.log("lastCardInHandArr", lastCardInHandArr)
+			game.createDivCard(lastCardInHandArr,whoseDiv)
+
+		}
+
+		else if(whoseDiv.parentNode === "player2Cards"){
+			// hide p2 buttons
+			// dealers says "Player 2's hand exceeded 21
+			// 				 Player 1's turn!"
+			game.player1Turn()
+		}
 
 
-		//check hand total
 		game.checkHandWorth(whoseHand) 
 	}, 
 
@@ -226,13 +223,9 @@ const game = {
 			total += curCardValue
 
 			if(curCardValue === 11){
-				//find aces/cards with value of 11
+				
 				let index = i
-				console.log("index", index)
 				indicesOfAces.push(i)
-				console.log("index added",i) //confirmed
-				console.log("index of aces array",indicesOfAces) // arr is empty **NEED TO FIX**
-				// above is not confirmed working so far
 			}
 		}
 
@@ -271,22 +264,13 @@ const player2StayButton = document.querySelector("#stay2")
 //for each below, if buttons are set to visible, its their turn to go, so allow it
 //can make more dry and use one listener for button class
 player1HitButton.addEventListener('click', (event) => {
-	//add card to player1Hand
-	// addRandomCardToHand(game.player1Hand)
 
 	game.addRandomCardToHand(game.player1Hand,game.player1HandDivLoc)
 }) 
 
 player2HitButton.addEventListener('click', (event) => {
-
-	//add card to player2Hand
-	// addRandomCardToHand(game.player2Hand)
-
-	console.log('p2hit handArr',game.player2Hand)
-	console.log('p2hit handDiv',game.player2HandDivLoc)
 	
 	game.addRandomCardToHand(game.player2Hand,game.player2HandDivLoc)
-
 })
 
 player1StayButton.addEventListener('click', (event) => {
