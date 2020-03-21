@@ -168,6 +168,7 @@ const game = {
 		card.style.height = '175px'
 		card.style.backgroundColor = 'white'
 		card.style.border = 'solid black 1px'
+		card.innerHTML = obj.name
 
 		const cardName = document.createElement('p')
 		console.log("where",whereToGo)
@@ -264,9 +265,7 @@ const player1HitButton = document.querySelector("#hit1")
 const player1StayButton = document.querySelector("#stay1")
 const player2HitButton = document.querySelector("#hit2")
 const player2StayButton = document.querySelector("#stay2")
-const player1HandDiv = document.querySelector('#player1Cards')
-const player2HandDiv = document.querySelector('#player2Cards')
-const dealerHandDiv = document.querySelector('#dealerCards')
+
 
 
 //for each below, if buttons are set to visible, its their turn to go, so allow it
@@ -275,7 +274,7 @@ player1HitButton.addEventListener('click', (event) => {
 	//add card to player1Hand
 	// addRandomCardToHand(game.player1Hand)
 
-	game.addRandomCardToHand(game.player1Hand,game.player1HandDiv)
+	game.addRandomCardToHand(game.player1Hand,game.player1HandDivLoc)
 }) 
 
 player2HitButton.addEventListener('click', (event) => {
@@ -283,16 +282,21 @@ player2HitButton.addEventListener('click', (event) => {
 	//add card to player2Hand
 	// addRandomCardToHand(game.player2Hand)
 
+	console.log('p2hit handArr',game.player2Hand)
+	console.log('p2hit handDiv',game.player2HandDivLoc)
 	
-	
-	game.addRandomCardToHand(game.player2Hand,game.player2HandDiv)
+	game.addRandomCardToHand(game.player2Hand,game.player2HandDivLoc)
 
 })
 
 player1StayButton.addEventListener('click', (event) => {
 	//end player1 turn
 
-	game.dealerTurn()
+	// game.dealerTurn()
+	//needs to let dealer choose cards, 
+	// then call a func to find winners,
+	// then change banks, 
+	// then reset
 })
 
 player2StayButton.addEventListener('click', (event) => {
@@ -300,7 +304,7 @@ player2StayButton.addEventListener('click', (event) => {
 
 	//hide player 2 buttons / message box etc
 
-	game.player1Turn()
+	// game.player1Turn()
 })
 
 
