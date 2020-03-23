@@ -149,7 +149,7 @@ const game = {
 			if(randomNum === 6){
 				game.addRandomCardToHand(game.dealerHand,game.dealerHandDivLoc)
 			} 
-			console.log("dealer is done drawing cards")
+			console.log("dealer chose at card at random, when hand was 17 or over ")
 		}
 		if(dealerHandTotal > 12 && dealerHandTotal < 17){
 			game.addRandomCardToHand(game.dealerHand,game.dealerHandDivLoc)
