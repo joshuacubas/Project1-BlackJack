@@ -50,7 +50,7 @@
 5. Player two chooses "hit" and accept another card, may choose to do so multiple times, and/or "stay" and ends turn.
 6. If total hand score ever goes over 21, player One 'busts' and the next player, if none the dealer, plays next.
 7. once player player two's turn is over, player two's hit/stay buttons will dissapear and player one's hit/stay buttons will appear next. Once player one's turn end, player one's hit/stay buttons will dissapear.
-8. Dealer's turn begins.If dealer's hand is under 12, dealer draws an additional card, if dealers hand is between 12 and 17 Dealer willchoose to "hit". If dealers hand is worth 18 or higher, dealer will choose to "stand". The dealers choice will cycle until breaking over 21 or having chosen to "stand"
+8. Dealer's turn begins.If dealer's hand is under 12, dealer draws an additional card, if dealers hand is between 12 and 17 Dealer will choose to "hit". if dealers cards are 17, dealer has a 1 in 10 chance of drawing another card. Then dealers choice will cycle until breaking over 21 or having chosen to "stand"
 9. If either player player has a BlackJack, and the dealer does not, player(s) beat the dealer and win.
 10. Winning bets are doubled and added to winners banks, and deducted from losers banks
 11. When player/dealer runs out of tokens to bet, the game is over and no more hands can be played.
