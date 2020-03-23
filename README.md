@@ -24,12 +24,12 @@
  - each card will be given one of the following four suits; hearts, clubs, diamonds, or spades.
  - The cards will also have a number (2-9) or an Ace , Jack , Queen , or King value. 
  - Jack, Queen, and King all are worth ten
- - An Ace can be worth 1 'or' 11,  which ever is more in the players favor of winning.
+ - An Ace can be worth 1 'or' 11,  which ever is more in the hand's favor of winning.
 
 ### Winning
 
 - BlackJacks are an automatic win. To have a BlackJack, th eplayer must initially be dealt an ace and any 10-point card. Unless the dealer also has a BlackJack, the player automatically wins.
-- Having the closest cards to sum up to 21, wins
+- Having a larger sum up to 21 than the dealer.
 
 ### Draw
 
@@ -37,20 +37,20 @@
 
 ### Losing
 
-- If a hand's total score is worth over 21, you automatically lose
-- if another hand is worth more
+- If dealer hand's total score is worth over 21, yours is under, you lose
+- if your hand goes over 21, and dealer's does not, you lose
 #
 #
 # Gameplay
 #
-1. The games starts by randomizing 52 cards in a deck.
-2. User(s) is prompted with a choice of having one or two players. This allows for one or two users to play against the dealer(computer).
-3. Each player start off with ten tokens, and chooses to places their bets.
-4. Each player is dealt two cards face up, dealer is dealt one card face up one card face down.
-5. Player one chooses "stand" and end turn, "hit" and accept another card and repeat card choice, "double down" and place an additional bet up to the value of the first bet and end turn.
-6. Player ones total hand score is added up and displayed after each card choice. If score ever goes over 21, player One loses and the player 2 if playing , or if not, dealer plays next
-7. If player 2 is playing, player 2 has the same route to play through.
-8. Dealer's turn begins. Dealers second card is revealed. if dealers hand is under 12, dealer draws an additional card, if dealers hand is between 12 and 17 Dealer will randomly choose to "hit" or "stand". If dealers hand is worth 18 or higher, dealer will choose to "stand". The dealers choice will cycle until breaking over 21 or having chosen to "stand"
+1. The games starts by adding 52 cards into a deck.
+2. Two player's hands and dealer hand are dealt.
+3. Each player start off with one hundred tokens, and chooses to places their bets.
+4. Each player is dealt two cards face up.
+5. Player two chooses "hit" and accept another card, may choose to do so multiple times, and/or "stay" and ends turn.
+6. If total hand score ever goes over 21, player One 'busts' and the next player, if none the dealer, plays next.
+7. once player player two's turn is over, player two's hit/stay buttons will dissapear and player one's hit/stay buttons will appear next. Once player one's turn end, player one's hit/stay buttons will dissapear.
+8. Dealer's turn begins.If dealer's hand is under 12, dealer draws an additional card, if dealers hand is between 12 and 17 Dealer willchoose to "hit". If dealers hand is worth 18 or higher, dealer will choose to "stand". The dealers choice will cycle until breaking over 21 or having chosen to "stand"
 9. If either player player has a BlackJack, and the dealer does not, player(s) beat the dealer and win.
 10. Winning bets are doubled and added to winners banks, and deducted from losers banks
 11. When player/dealer runs out of tokens to bet, the game is over and no more hands can be played.
