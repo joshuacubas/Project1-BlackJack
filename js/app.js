@@ -62,6 +62,10 @@ const game = {
 
 	nextRoundButton : document.querySelector('#nextRoundButton'),
 
+	player2ChipsLeft :document.querySelector("#player2ChipsLeft"),
+
+	player1ChipsLeft :document.querySelector("#player1ChipsLeft"),
+
 	generateDeck : () => {
 		
 		let numFaces = ['2','3','4','5','6','7','8','9','10','J','Q','K','A']
@@ -163,15 +167,17 @@ const game = {
 
 	endRound : () => {
 
-		game.compareHands(game.player1Message,game.checkHandWorth(game.player1Hand),game.checkHandWorth(game.dealerHand),game.player1Bet,game.player1Bank)
+		game.compareHands(game.player1ChipsLeft,game.player1Message,game.checkHandWorth(game.player1Hand),game.checkHandWorth(game.dealerHand),game.player1Bet,game.player1Bank)
 		
 		console.log("p1BankAFTER",game.player1Bank)
 		console.log('dealerBankAFTER', game.dealerBank)
 
-		game.compareHands(game.player2Message,game.checkHandWorth(game.player2Hand),game.checkHandWorth(game.dealerHand),game.player2Bet,game.player2Bank)
+		game.compareHands(game.player2ChipsLeft,game.player2Message,game.checkHandWorth(game.player2Hand),game.checkHandWorth(game.dealerHand),game.player2Bet,game.player2Bank)
 		
 		console.log("p2BankAFTER",game.player2Bank)
 		console.log('dealerBankAFTER', game.dealerBank)
+
+
 
 	}, 
 
@@ -210,7 +216,7 @@ const game = {
 		} )  	
 	}, 
 
-	compareHands : (playerMsg,playersHand,dealerHand,playersBet,playersBank) => {
+	compareHands : (playerChipsLeftOnDiv,playerMsg,playersHand,dealerHand,playersBet,playersBank) => {
 
 		console.log('bet ratio',game.betMultiplier)
 		console.log('psBet',playersBet)
@@ -223,7 +229,7 @@ const game = {
 			playersBank += (game.betMultiplier*playersBet)
 			game.dealerBank -= gambledAmount
 			console.log("0","gamble:",gambledAmount,playersBank)
-			console.log("0","gamble:",gambledAmount,"db",game.dealersBank)
+			console.log("0","gamble:",gambledAmount,"db",game.dealerBank)
 		} 
 
 		else if( (playersHand > dealerHand) && (playersHand < 22) ){
@@ -254,6 +260,7 @@ const game = {
 			console.log("4","gamble:",gambledAmount,playersBank)
 			console.log("4","gamble:",gambledAmount,"p1b",game.player1Bank)
 			console.log("4","gamble:",gambledAmount,"p2B",game.player2Bank)
+
 		}
 		
 	}, 
