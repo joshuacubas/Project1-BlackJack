@@ -54,6 +54,8 @@
 9. If either player player has a BlackJack, and the dealer does not, player(s) beat the dealer and win.
 10. Winning bets are doubled and added to winners banks, and deducted from losers banks
 11. When player/dealer runs out of tokens to bet, the game is over and no more hands can be played.
+12. When all players are done with their hand, dealer's drawn cards are shown, winners/losers if any are shown, 
+13. To start next round hit the buttonin the top left corner of the screen labeled "Ready for next round?". Bets are reset to 1 for next round, All hands are emptied, and a new deck is formed.
 #
 #
 
