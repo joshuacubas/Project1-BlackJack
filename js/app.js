@@ -42,8 +42,6 @@ const game = {
 
 	deck : [],
 
-	// discardPile : [],
-
 	player1HandDivLoc : document.querySelector('#player1Cards'),
 
 	player2HandDivLoc : document.querySelector('#player2Cards'),
@@ -65,8 +63,6 @@ const game = {
 	nextRoundButton : document.querySelector('#nextRoundButton'),
 
 	generateDeck : () => {
-
-		// console.log("generateDeck() called")
 		
 		let numFaces = ['2','3','4','5','6','7','8','9','10','J','Q','K','A']
 		let suits = ['CLUBS',"SPADES",'HEARTS','DIAMONDS']
@@ -87,7 +83,7 @@ const game = {
 	}, 
 
 	start : ()=>{
-		// console.log("start func running")
+	
 		game.deck = []  
 		game.generateDeck()
 		let dealToArray = [[game.player2Hand,game.player2HandDivLoc],[game.player1Hand,game.player1HandDivLoc],[game.dealerHand,game.dealerHandDivLoc]]
@@ -140,7 +136,6 @@ const game = {
 		game.dealerChoice()
 
 		game.endRound()
-		// call func that endRound ---> also calls startNextRound()
 	}, 
 
 	dealerChoice : () => {
@@ -149,7 +144,7 @@ const game = {
 
 		
 		if(dealerHandTotal >= 17){
-			// ********************************************** stay****
+			
 			let randomNum = Math.floor( Math.random()*10 )
 			if(randomNum === 6){
 				game.addRandomCardToHand(game.dealerHand,game.dealerHandDivLoc)
@@ -175,9 +170,6 @@ const game = {
 		console.log("p2Bank",game.player2Bank)
 		console.log('dealerBank', game.dealerBank)
 
-		//update html
-
-		//Ask players to start next round
 	}, 
 
 	startNextRound : () => {
@@ -217,9 +209,6 @@ const game = {
 
 	compareHands : (playerMsg,playersHand,dealerHand,playersBet,playersBank) => {
 
-		// console.log("msg",playerMsg)
-		// console.log('playersHand', playersHand)
-		// console.log('dealerHand', dealerHand)
 		console.log('bet ratio',game.betMultiplier)
 		console.log('psBet',playersBet)
 		console.log('psBank',playersBank)
@@ -255,8 +244,8 @@ const game = {
 			playersBank = playersBank - gambledAmount
 			game.dealerBank += gambledAmount
 			console.log("4",playersBank)
-	}
-		// console.log("msg after",playerMsg.innerHTML)
+		}
+		
 	}, 
 
 	placeBets : () => {},
@@ -268,13 +257,12 @@ const game = {
 		card.style.height = '175px'
 		card.style.backgroundColor = 'white'
 		card.style.border = 'solid black 1px'
-		// card.innerHTML = obj.name
+		
 
 		card.style.backgroundImage = `url(pics/${obj.suit.toLowerCase()}.png)`
 		card.style.backgroundSize = '115px'
 		card.style.backgroundRepeat = 'no-repeat';
 		card.style.position = 'relative'
-  		// card.style.backgroundAttachment = 'fixed';
   		card.style.backgroundPosition = 'center';
 		
 		const cardNameTopLeft = document.createElement('p')
@@ -325,7 +313,6 @@ const game = {
 			
 			if(whoseDiv.id === "player2Cards"){
 				
-				//add user message over 21
 				game.player2Message.innerHTML = "* * Bust, over 21!"
 				game.player1Turn()
 			}
@@ -361,7 +348,7 @@ const game = {
 		}
 
 		if(total < 22){
-			// console.log("worth was under 22")
+			
 			return total
 		}
 
