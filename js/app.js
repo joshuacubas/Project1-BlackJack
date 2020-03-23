@@ -155,7 +155,11 @@ const game = {
 		}
 
 		if(dealerHandTotal > 12 && dealerHandTotal < 17){
-			game.addRandomCardToHand(game.dealerHand,game.dealerHandDivLoc)
+			let randomNum = Math.floor( Math.random()*100 )
+			if(randomNum %3 === 0 ){
+				game.addRandomCardToHand(game.dealerHand,game.dealerHandDivLoc)
+			} 
+			// game.addRandomCardToHand(game.dealerHand,game.dealerHandDivLoc)
 			game.dealerChoice()
 		}
 
