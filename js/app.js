@@ -20,7 +20,7 @@ const game = {
 
 	player1Bet : 1,
 
-	player1Wage : document.querySelector("#player1Wage"),
+	player1Wage : document.querySelector("#player1WageForm"),
 
 	player2Hand : [],
 
@@ -30,7 +30,7 @@ const game = {
 
 	player2Bet : 1,
 
-	player2Wage : document.querySelector("#player2Wage"),
+	player2Wage : document.querySelector("#player2WageForm"),
 
 	dealerHand : [],
 
@@ -142,7 +142,6 @@ const game = {
 
 		let dealerHandTotal = game.checkHandWorth(game.dealerHand)
 
-		
 		if(dealerHandTotal >= 17){
 			
 			let randomNum = Math.floor( Math.random()*10 )
@@ -150,10 +149,12 @@ const game = {
 				game.addRandomCardToHand(game.dealerHand,game.dealerHandDivLoc)
 			} 
 		}
+
 		if(dealerHandTotal > 12 && dealerHandTotal < 17){
 			game.addRandomCardToHand(game.dealerHand,game.dealerHandDivLoc)
 			game.dealerChoice()
 		}
+
 		if(dealerHandTotal <= 12){
 			game.addRandomCardToHand(game.dealerHand,game.dealerHandDivLoc)
 			game.dealerChoice()
@@ -164,10 +165,13 @@ const game = {
 
 		game.compareHands(game.player1Message,game.checkHandWorth(game.player1Hand),game.checkHandWorth(game.dealerHand),game.player1Bet,game.player1Bank)
 		
+		console.log("p1BankAFTER",game.player1Bank)
+		console.log('dealerBankAFTER', game.dealerBank)
+
 		game.compareHands(game.player2Message,game.checkHandWorth(game.player2Hand),game.checkHandWorth(game.dealerHand),game.player2Bet,game.player2Bank)
-		console.log("p1Bank",game.player1Bank)
-		console.log("p2Bank",game.player2Bank)
-		console.log('dealerBank', game.dealerBank)
+		
+		console.log("p2BankAFTER",game.player2Bank)
+		console.log('dealerBankAFTER', game.dealerBank)
 
 	}, 
 
@@ -218,7 +222,8 @@ const game = {
 			playerMsg.innerHTML = playerMsg.innerHTML + ` Your hand Wins.`
 			playersBank += (game.betMultiplier*playersBet)
 			game.dealerBank -= gambledAmount
-			console.log("0",playersBank)
+			console.log("0","gamble:",gambledAmount,playersBank)
+			console.log("0","gamble:",gambledAmount,"db",game.dealersBank)
 		} 
 
 		else if( (playersHand > dealerHand) && (playersHand < 22) ){
@@ -226,23 +231,29 @@ const game = {
 			playerMsg.innerHTML = playerMsg.innerHTML + ` Your hand Wins.`
 			playersBank += gambledAmount
 			game.dealerBank -= gambledAmount
-			console.log("1",playersBank)
+			console.log("1","gamble:",gambledAmount,playersBank)
+			console.log("1","gamble:",gambledAmount,"db",game.dealerBank)
 		}
 
 		else if( playersHand === dealerHand){
 			playerMsg.innerHTML = playerMsg.innerHTML +  ' Both hands tied.'
-			console.log("2",playersBank)
+			console.log("2", "gamble:",gambledAmount,playersBank)
+			console.log("2","gamble:",gambledAmount,"db",game.dealerBank)
 		}
 
 		else if(playersHand > 21 && dealerHand > 21){
 			playerMsg.innerHTML = playerMsg.innerHTML +  ' Both hands tied.'
-			console.log("3",playersBank)
+			console.log("3","gamble:",gambledAmount,playersBank)
+			console.log("3","gamble:",gambledAmount,"db",game.dealerBank)
 		}
 		else {
 			playerMsg.innerHTML += ` Dealer's hand Wins.`
 			playersBank = playersBank - gambledAmount
 			game.dealerBank += gambledAmount
-			console.log("4",playersBank)
+			console.log("4","gamble:",gambledAmount,"db",game.dealerBank)
+			console.log("4","gamble:",gambledAmount,playersBank)
+			console.log("4","gamble:",gambledAmount,"p1b",game.player1Bank)
+			console.log("4","gamble:",gambledAmount,"p2B",game.player2Bank)
 		}
 		
 	}, 
@@ -356,7 +367,6 @@ const game = {
 			return game.checkHandWorth(whoseHand)
 		}
 
-		console.log("returned total should be over 21, check to see if ace values are 1")
 		return total
 
 	},
@@ -391,15 +401,23 @@ game.player2StayButton.addEventListener('click', (event) => {
 	game.player1Turn()
 })
 
-const player1Wage = document.querySelector('#player1Wage')
+
 game.player1Wage.addEventListener('submit', (event) => {
-	event.preventDefault()
-	game.player1Bet = player1Wage.value
+	
+	event.preventDefault();
+	
+	const betInput = document.querySelector("#player1Wage")
+	
+	game.player1Bet = Number(betInput.value);
 } )
 
 game.player2Wage.addEventListener('submit', (event) => {
-	event.preventDefault()
-	game.player2Bet = player2Wage.value
+	
+	event.preventDefault();
+	
+	const betInput = document.querySelector("#player2Wage")
+	
+	game.player2Bet = Number(betInput.value);
 } )
 
 game.nextRoundButton.addEventListener('click', (event) => {
