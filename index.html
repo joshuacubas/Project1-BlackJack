@@ -3,10 +3,14 @@
 <head>
 	<title>BlackJack Game</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+<link rel="shortcut icon" type="image/png" href="pics/favicon.png"/>
+	
 </head>
 <body>
 	<header>
 		<h1>Welcome to the BlackJack Table</h1>
+		<button id="nextRoundButton">Ready For Next Round?</button>
 	</header>
 	<div id="div-dealerContainer">
 
@@ -47,8 +51,9 @@
 			<button id="hit1" class="hitButtons">Hit</button>
 			<button id="stay1" class="stayButtons">Stay</button>
 			<form id="player1WageForm">
-		    	<input id="player1Wage" type="number" name="demoInput" placeholder="Type in Bet" />
-		    	<button id="placeWager1" class="wagerButtons">Submit Bet</button>    
+		    	<input id="player1Wage" type="number" name="demoInput" placeholder="Type in Bet. Default is 1 chip." />
+		    	<button id="placeWager1" class="wagerButtons">Submit Bet</button> 
+		    	<span id="p1Message" class="messages"></span>   
 			</form>
 			<div id="player1Cards"></div>
 			<!-- form for bet -->
@@ -67,8 +72,9 @@
 			<button id="hit2" class="hitButtons">Hit</button>
 			<button id="stay2" class="stayButtons">Stay</button>
 			<form id="player2WageForm">
-		    	<input id="player2Wage" type="number" name="demoInput" placeholder="Type in Bet" />
+		    	<input id="player2Wage" type="number" name="demoInput" placeholder="Type in Bet. Default is 1 chip." />
 		    	<button id="placeWager2" class="wagerButtons">Submit Bet</button>    
+		    	<span id="p2Message" class="messages"></span>
 			</form>
 			<div id="player2Cards"></div>
 			<!-- form for bet -->

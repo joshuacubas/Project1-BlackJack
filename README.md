@@ -56,25 +56,6 @@
 11. When player/dealer runs out of tokens to bet, the game is over and no more hands can be played.
 #
 #
-# Coding
-
-- A card class will be made. With properties of faceup(boolean), worth [number,number], suit (string), face (String),
-- the main game will be contained in the 'game' object
-- listeners will be placed at the bottom below the "game" object
-- game will have a current total hand card score key-value pair for each player and dealer 
-- game will have a deckOfCards property with an array of 52 objects representing cards
-- game will have a discardPile array property
-- game will have a player1Hand and player2Hand properties each with an empty array value to start
-- game will have a player1Bank, player2Bank, and dealerBank properties, each starting off equal to 10,10,20
-- game will have a betting method to give players choices to bet
-- game will have a function to dsiplay cards in play
-- game will have a function to display currentBets
-- game will have a function to display everyones money left to bet
-- game will have a function to add up each hands worth. if an ace is in the hand total will be the maximum worth under 22, 
-- when dealers turn ends, a comparsion function is called to compare each players hand to the dealers hand, bets/earnings are calculated with winning results and distributed accordingly
-- game will have a func to display after players and dealer have played their hands. winning results and new bank amounts will be shown to users
-- game will have a function to return cards from the discarPile back to the deckOfCards 
-- game will call a call back function to start a new round.
 
 
 

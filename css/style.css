@@ -227,3 +227,30 @@ body {
 	border-radius: 12px;
 
 }
+
+.rotated180 {
+  -webkit-transform:rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+#nextRoundButton {
+	/*display: flex;
+	align-self: left;*/
+	position: absolute;
+	top: 4%;
+  	right: 200px;
+  	/*height:30px;
+  	width: 100px;*/
+  	font-size: 25px;
+}
+
+#player2Wage,#player1Wage{
+	width: 160px;
+}
+
+.messages {
+	display:inline-flex;
+}
