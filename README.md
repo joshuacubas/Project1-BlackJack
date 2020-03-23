@@ -46,7 +46,7 @@
 1. The games starts by adding 52 cards into a deck.
 2. Two player's hands and dealer hand are dealt.
 3. Each player start off with one hundred tokens, and chooses to places their bets.
-4. Each player is dealt two cards face up.
+4. Each player is dealt two cards face up. Players then mkae a bet based on their hand.
 5. Player two chooses "hit" and accept another card, may choose to do so multiple times, and/or "stay" and ends turn.
 6. If total hand score ever goes over 21, player One 'busts' and the next player, if none the dealer, plays next.
 7. once player player two's turn is over, player two's hit/stay buttons will dissapear and player one's hit/stay buttons will appear next. Once player one's turn end, player one's hit/stay buttons will dissapear.
